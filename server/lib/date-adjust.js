@@ -5,6 +5,8 @@ const fs = require("fs");
 // Requiring a JSON file automatically parses it and returns the data.
 let tweetsJSON = require('../data-files/initial-tweets.json');
 
+console.log(tweetsJSON)
+
 // Write recent dates to initial-tweets.json
 // Specifically sync to not interfere with student functions
 module.exports = () => {

@@ -15,7 +15,7 @@
 .new-tweet__input textarea{
   flex:1;
   box-sizing: border-box;
-  
+
   resize: none;
   background: inherit;
   border: none;
@@ -39,4 +39,8 @@
 .new-tweet__counter output{
   font-family: Bungee, cursive;
   
+}
+
+.over-limit {
+  color: rgb(255,0,0);
 }

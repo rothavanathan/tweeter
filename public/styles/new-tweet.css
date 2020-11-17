@@ -8,13 +8,14 @@
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   
 }
 
 .new-tweet__input textarea{
   flex:1;
   box-sizing: border-box;
+  
   resize: none;
   background: inherit;
   border: none;

@@ -86,11 +86,12 @@ $(document).ready(function() {
 
     $
     .ajax({
-      url: '/',
+      url: '/tweets',
       method: 'POST',
       data: $('form').serialize()
     })
-    .then(res => console.log(res))
+    .then(res => console.log(`whoo!! we got a post`, res))
+    .catch(err => console.log(err))
   })
 
 

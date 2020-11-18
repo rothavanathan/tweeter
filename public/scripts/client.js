@@ -45,7 +45,6 @@ $(document).ready(function() {
       const $tweet = createTweetElement(tweet)
       $('.old-tweets-container').append($tweet);
     }
-    console.log(`rendered tweets.`);
   }
 
   // define a function createTweetElement that takes in a tweet object and is responsible for returning a tweet <article> element containing the entire HTML structure of the tweet
@@ -77,4 +76,22 @@ $(document).ready(function() {
 
   
   renderTweets(data);
+
+  //add an AJAX POST request that sends the form data to the server
+  $('form').on('submit', (event) => {
+    
+    event.preventDefault();
+    
+    //extravt values from form
+
+    $
+    .ajax({
+      url: '/',
+      method: 'POST',
+      data: $('form').serialize()
+    })
+    .then(res => console.log(res))
+  })
+
+
 })

@@ -7,19 +7,25 @@
 .new-tweet__input {
   border-bottom: 4px solid var(--black);
   padding-top: 0.5em;
-  padding-bottom: 0.5em;
   display: flex;
   flex-direction: column;
-  
 }
 
-.new-tweet__input textarea{
+#tweet-text {
   flex:1;
+  padding-top: 0.5em;
   box-sizing: border-box;
-
+  overflow: auto;
   resize: none;
   background: inherit;
   border: none;
+  outline: none;
+
+  font-family: Bungee, cursive;
+}
+
+#tweet-text:required {
+  box-shadow : none;
   outline: none;
 }
 

@@ -45,6 +45,7 @@ main {
 
 body > footer {
   height: 8em;
+  margin-top: 2em;
   font-family: Bungee, cursive;
   color:  #f9f9f9;
   background-color: var(--black);

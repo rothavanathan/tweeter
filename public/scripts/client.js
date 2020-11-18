@@ -9,34 +9,17 @@
 
 
 $(document).ready(function() {
+  
+  const isFormValid = () => {
+    const text = $("#tweet-text").val();
+    console.log(text);
+    if (text.length === 0 || text === null || text.length > 140) {
+      return false;
+    }
+    return true;
+  }
 
-
-// // Fake data taken from initial-tweets.json
-//   const data = [
-//     {
-//       "user": {
-//         "name": "Newton",
-//         "avatars": "https://i.imgur.com/73hZDYK.png"
-//         ,
-//         "handle": "@SirIsaac"
-//       },
-//       "content": {
-//         "text": "If I have seen further it is by standing on the shoulders of giants"
-//       },
-//       "created_at": 1461116232227
-//     },
-//     {
-//       "user": {
-//         "name": "Descartes",
-//         "avatars": "https://i.imgur.com/nlhLi3I.png",
-//         "handle": "@rd" },
-//       "content": {
-//         "text": "Je pense , donc je suis"
-//       },
-//       "created_at": 1461113959088
-//     }
-//   ]
-
+  //takes in tweets object and renders each tweet to page
   const renderTweets = function(tweets) {
     // loops through tweets
     for (const tweet of tweets) {
@@ -73,6 +56,8 @@ $(document).ready(function() {
     return $tweet;
   }
 
+  //makes an ajax request and returns json data
+  //intention is to to get tweets then render using renderTweets as callback 
   const loadTweets = (action) => {
     $
       .ajax({
@@ -89,21 +74,36 @@ $(document).ready(function() {
 
   loadTweets(renderTweets);
 
+  
+
   //add an AJAX POST request that sends the form data to the server
   $('form').on('submit', (event) => {
     
     event.preventDefault();
     
-    //extravt values from form
-
-    $
-    .ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: $('form').serialize()
-    })
-    .then(res => console.log(`whoo!! we got a post`, res))
-    .catch(err => console.log(err))
+    
+    if (isFormValid()) {
+       //extract values from form inputs
+      $
+      .ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: $('form').serialize()
+      })
+      .then(res => {
+        //reset form textarea
+        $('#tweet-text').val("");
+        console.log(`whoo!! we got a post`, res)
+        loadTweets(renderTweets);
+      })
+      
+      .catch(err => console.log(err))
+      // alert(`Form input is invalid. Please enter text with a maximum of 140 characters.`)
+    } else {
+      alert(`hmmm... your tweet is invalid. try again!`)
+    }
+    
+ 
   })
 
 

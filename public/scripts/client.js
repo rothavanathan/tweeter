@@ -53,7 +53,7 @@ $(document).ready(function() {
   const createTweetElement = function(tweet) {
     let $tweet = $(`<article class="tweet">
     <header>
-      <img src="${tweet.user.avatars}">
+      <img src="${tweet.user.avatars}" alt="${tweet.user.name}'s avatar">
       <p> ${tweet.user.name}</p>
       <p class="handle hide">${tweet.user.handle}</p>
       

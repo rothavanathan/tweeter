@@ -55,10 +55,20 @@ article.tweet {
   margin-top: 2em;
   padding: 1em;
   color: var(--black);
+  opacity: 0.75;
 }
 
 article.tweet:hover {
   box-shadow: 7px 7px 8px 3px var(--black);
+  opacity: 1.0;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+article.tweet:hover .hide {
+  visibility: visible;
 }
 
 article.tweet header {
@@ -69,6 +79,7 @@ article.tweet header {
 
 article.tweet i {
   font-size: 1.5em;
+
 }
 
 article.tweet .handle {

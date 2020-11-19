@@ -10,14 +10,59 @@
 }
 
 
+
 .new-tweet-show {
   visibility: visible;
   max-height: 500px;
   transition: max-height 0.25s ease-in;
   opacity: 1;
   transition: opacity 0.20s ease-in;
-  
-  
+}
+
+
+#alert {
+  /* height: 3em; */
+  margin: 0.5em;
+  border: 4px solid Red;
+  background-color: rgb(255, 145, 145);
+  opacity: 0.85;
+  display: none;
+}
+
+#alert p {
+  color: black;
+  font-size: 1em;
+  margin: 0;
+
+}
+
+#alert button {
+  font-family: Bungee, cursive;
+  background-color: white;
+  color: var(--black);
+  width: 2em;
+
+}
+
+#alert.hideAlert {
+  margin: 0;
+  visibility: hidden;
+  opacity: 0;
+  height: 0px;
+  transition: visibility 0.5s;
+  transition: height 0.5s;
+}
+
+#alert.showAlert {
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+  opacity: 1;
+  transition: visibility 0.5s;
+  transition: height 300ms;
 }
 
 .new-tweet__input {
@@ -67,48 +112,6 @@
   
 }
 
-#alert {
-  /* height: 3em; */
-  margin: 0.5em;
-  border: 4px solid Red;
-  background-color: rgb(255, 145, 145);
-  opacity: 0.85;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#alert p {
-  color: black;
-  font-size: 1em;
-  margin: 0;
-
-}
-
-#alert button {
-  font-family: Bungee, cursive;
-  background-color: white;
-  color: var(--black);
-  width: 2em;
-
-}
-
-.hideAlert {
-  visibility: hidden;
-  opacity: 0;
-  height: 0px;
-  transition: visibility 0.5s;
-  transition: height 0.5s;
-}
-
-.showAlert {
-  visibility: visible;
-  height: 4em;
-  opacity: 1;
-  transition: visibility 0.5s;
-  transition: height 300ms;
-}
 
 .over-limit {
   color: rgb(255,0,0);

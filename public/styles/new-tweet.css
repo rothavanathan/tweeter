@@ -21,7 +21,9 @@
   border: none;
   outline: none;
 
-  font-family: Bungee, cursive;
+  font-family:'Source Sans Pro', sans-serif;
+  font-weight: 700;
+
 }
 
 #tweet-text:required {

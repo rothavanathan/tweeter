@@ -13,7 +13,14 @@ $(document).ready(function() {
   const isFormValid = () => {
     const text = $("#tweet-text").val();
     console.log(text);
-    if (text.length === 0 || text === null || text.length > 140) {
+    if (text.length === 0) {
+      alert('Hmm.. you can\'t submit an empty tweet')
+      return false;
+    } else if (text.length > 140) {
+      alert('Hmm.. you can\'t submit a tweet that big! 140 characters max.')
+      return false;
+    } else if (text === null) {
+      alert('Hmmm.. somethings wrong here. Try again with some different input')
       return false;
     }
     return true;
@@ -26,9 +33,15 @@ $(document).ready(function() {
       // calls createTweetElement for each tweet
       // takes return value and appends it to the tweets container
       const $tweet = createTweetElement(tweet)
-      $('.old-tweets-container').append($tweet);
+      $('.old-tweets-container').prepend($tweet);
     }
   }
+
+  const renderNewTweet = function(tweet) {
+    const $tweet = createTweetElement(tweet);
+    $('.old-tweets-container').prepend($tweet);
+  }
+  
 
   // define a function createTweetElement that takes in a tweet object and is responsible for returning a tweet <article> element containing the entire HTML structure of the tweet
 
@@ -93,18 +106,15 @@ $(document).ready(function() {
       .then(res => {
         //reset form textarea
         $('#tweet-text').val("");
+        //reset counter
+        $(".counter").val(140).css('color', 'var(--black)');
+
         console.log(`whoo!! we got a post`, res)
         loadTweets(renderTweets);
       })
       
       .catch(err => console.log(err))
       // alert(`Form input is invalid. Please enter text with a maximum of 140 characters.`)
-    } else {
-      alert(`hmmm... your tweet is invalid. try again!`)
-    }
-    
- 
+    } 
   })
-
-
 })

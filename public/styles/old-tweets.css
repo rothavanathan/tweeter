@@ -48,13 +48,17 @@ article.tweet .old-tweet-text {
   color: var(--black);
   padding-bottom: 1em;
   border-bottom: 4px solid var(--black);
+  display: block;
+  
 }
 
 
 article.tweet main {
   margin: 0;
-  width: 100%
+  width: 100%;
 }
+
+
 
 article.tweet footer {
   display: flex;

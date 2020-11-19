@@ -100,6 +100,7 @@ body > footer > p > a {
   color: var(--white);
 }
 
+/* for displaying dot on scroll */
 .active {
   display: inline-block;
 }

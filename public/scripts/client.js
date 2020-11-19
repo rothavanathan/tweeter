@@ -9,7 +9,11 @@
 
 
 $(document).ready(function() {
-  //helper functions
+  
+  
+  //       HELPER FUNCTIONS    //
+
+  //checks if new-tweet form submission is valid and handles displaying alert messages
   const isFormValid = () => {
     const text = $("#tweet-text").val();
     console.log(text);
@@ -18,22 +22,24 @@ $(document).ready(function() {
       $('#alert').addClass('showAlert');
       return false;
     } else if (text.length > 140) {
-      $('#alert > p').text('Hmm.. you can\'t submit a tweet that big! 140 characters max.');
+      $('#alert > p').text('Hmm.. you can\'t submit a tweet that big!\n 140 characters max.');
       $('#alert').addClass('showAlert');
       return false;
     } else if (text === null) {
-      $('#alert > p').text('Hmmm.. something is wrong here. Try again with some different input');
+      $('#alert > p').text('Hmmm.. something is wrong here.\n Try again with some different input');
       $('#alert').addClass('showAlert');
       return false;
     }
     return true;
   };
 
+  //OK button in alert. resets alert pop up
   $('#alertButton').on('click', () => {
-    $('#alert').toggleClass('showAlert')
+    $('#alert').toggleClass('showAlert');
     $('#alert > p').text('');
-  })
+  });
 
+  //prompt in nav to display new-tweet form
   $('.nav-prompt').on('click', () => {
     $('section.new-tweet').toggleClass('new-tweet-show');
     if ($('section.new-tweet').hasClass('new-tweet-show')) {
@@ -41,29 +47,47 @@ $(document).ready(function() {
     } else {
       $('#tweet-text').val("");
     }
-  })
+  });
 
+  //form input sterilizer
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
   
-  //tweet functions
+  
+  //      TWEET FUNCTIONS            //
+  
   //takes in tweets object and renders each tweet to page
   const renderTweets = function(tweets) {
     // loops through tweets
     for (const tweet of tweets) {
       // calls createTweetElement for each tweet
-      // takes return value and appends it to the tweets container
       const $tweet = createTweetElement(tweet);
+      // takes return value and appends it to the tweets container
       $('.old-tweets-container').prepend($tweet);
     }
   };
-  
-  // define a function createTweetElement that takes in a tweet object and is responsible for returning a tweet <article> element containing the entire HTML structure of the tweet
 
+  //called after new-tweet form submission to display the newest tweet
+  const renderNewTweet = function() {
+    $
+      .ajax({
+        url: '/tweets',
+        dataType: 'json'
+      })
+      .then(data => {
+        const $tweet = createTweetElement(Object.values(data).pop());
+        $('.old-tweets-container').prepend($tweet);
+      })
+      .catch(err => console.log(err));
+  };
+
+
+  //takes in a tweet object and is responsible for returning a tweet <article> element containing the entire HTML structure of the tweet
   const createTweetElement = function(tweet) {
+    //generate date object to parse the timestamp
     const time = new Date(tweet.created_at);
     let $tweet = $(`<article class="tweet">
     <header>
@@ -104,15 +128,17 @@ $(document).ready(function() {
       .catch(err => console.log(err));
   };
 
+  
+
+  //populate old-tweet container
   loadTweets(renderTweets);
 
-  
+
 
   //add an AJAX POST request that sends the form data to the server
   $('form').on('submit', (event) => {
     
     event.preventDefault();
-    
     
     if (isFormValid()) {
       //extract values from form inputs
@@ -127,9 +153,8 @@ $(document).ready(function() {
           $('#tweet-text').val("");
           //reset counter
           $(".counter").val(140).css('color', 'var(--black)');
-          $('.old-tweets-container').empty();
-          console.log(`whoo!! we got a post`, res);
-          loadTweets(renderTweets);
+          //render the new tweet
+          renderNewTweet(res);
         })
       
         .catch(err => console.log(err));
@@ -141,15 +166,15 @@ $(document).ready(function() {
   $('.dot').on('click', () => {
     //scroll to top of page
     $('html, body').animate({ scrollTop: 0 }, 'fast');
-
     //open form
     $('section.new-tweet').addClass('new-tweet-show');
     $('#tweet-text').focus();
   });
 
+  //second toggle hide and show logic
   $(window).scroll(function() {
-    var height = $(window).scrollTop();
-    if(height > 400) {
+    const height = $(window).scrollTop();
+    if (height > 400) {
       $('.dot').addClass('active');
     } else {
       $('.dot').removeClass('active');

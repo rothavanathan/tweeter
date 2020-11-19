@@ -33,21 +33,7 @@ $(document).ready(function() {
     return true;
   };
 
-  //OK button in alert. resets alert pop up
-  $('#alertButton').on('click', () => {
-    $('#alert').toggleClass('showAlert');
-    $('#alert > p').text('');
-  });
-
-  //prompt in nav to display new-tweet form
-  $('.nav-prompt').on('click', () => {
-    $('section.new-tweet').toggleClass('new-tweet-show');
-    if ($('section.new-tweet').hasClass('new-tweet-show')) {
-      $('#tweet-text').focus();
-    } else {
-      $('#tweet-text').val("");
-    }
-  });
+ 
 
   //form input sterilizer
   const escape =  function(str) {
@@ -130,10 +116,11 @@ $(document).ready(function() {
 
   
 
-  //populate old-tweet container
+  //         populate old-tweet container          //
   loadTweets(renderTweets);
 
 
+  //                EVENT LISTENERS                 //
 
   //add an AJAX POST request that sends the form data to the server
   $('form').on('submit', (event) => {
@@ -162,6 +149,7 @@ $(document).ready(function() {
     }
   });
 
+
   //second toggle listener and logic
   $('.dot').on('click', () => {
     //scroll to top of page
@@ -169,6 +157,24 @@ $(document).ready(function() {
     //open form
     $('section.new-tweet').addClass('new-tweet-show');
     $('#tweet-text').focus();
+  });
+
+
+  //prompt in nav to display new-tweet form
+  $('.nav-prompt').on('click', () => {
+    $('section.new-tweet').toggleClass('new-tweet-show');
+    if ($('section.new-tweet').hasClass('new-tweet-show')) {
+      $('#tweet-text').focus();
+    } else {
+      $('#tweet-text').val("");
+    }
+  });
+
+
+   //OK button in alert. resets alert pop up
+   $('#alertButton').on('click', () => {
+    $('#alert').toggleClass('showAlert');
+    $('#alert > p').text('');
   });
 
   //second toggle hide and show logic
@@ -180,4 +186,6 @@ $(document).ready(function() {
       $('.dot').removeClass('active');
     }
   });
+
+
 });

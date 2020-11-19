@@ -6,6 +6,7 @@
 :root {
   --black:  #545149;
   --blue:  #4056A1;
+  --orange: rgb(255, 181, 15, 89);
 }
 
 html {

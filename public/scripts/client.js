@@ -36,6 +36,11 @@ $(document).ready(function() {
 
   $('.nav-prompt').on('click', () => {
     $('section.new-tweet').toggleClass('new-tweet-show');
+    if ($('section.new-tweet').hasClass('new-tweet-show')) {
+      $('#tweet-text').focus();
+    } else {
+      $('#tweet-text').val("");
+    }
   })
 
   const escape =  function(str) {

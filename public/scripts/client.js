@@ -14,17 +14,25 @@ $(document).ready(function() {
     const text = $("#tweet-text").val();
     console.log(text);
     if (text.length === 0) {
-      alert('Hmm.. you can\'t submit an empty tweet');
+      $('#alert > p').text('Hmm.. you can\'t submit an empty tweet');
+      $('#alert').addClass('showAlert');
       return false;
     } else if (text.length > 140) {
-      alert('Hmm.. you can\'t submit a tweet that big! 140 characters max.');
+      $('#alert > p').text('Hmm.. you can\'t submit a tweet that big! 140 characters max.');
+      $('#alert').addClass('showAlert');
       return false;
     } else if (text === null) {
-      alert('Hmmm.. somethings wrong here. Try again with some different input');
+      $('#alert > p').text('Hmmm.. something is wrong here. Try again with some different input');
+      $('#alert').addClass('showAlert');
       return false;
     }
     return true;
   };
+
+  $('#alertButton').on('click', () => {
+    $('#alert').toggleClass('showAlert')
+    $('#alert > p').text('');
+  })
 
   const escape =  function(str) {
     let div = document.createElement('div');

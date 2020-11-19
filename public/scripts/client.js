@@ -34,6 +34,10 @@ $(document).ready(function() {
     $('#alert > p').text('');
   })
 
+  $('.nav-prompt').on('click', () => {
+    $('section.new-tweet').toggleClass('new-tweet-show');
+  })
+
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));

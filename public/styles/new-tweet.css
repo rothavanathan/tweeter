@@ -2,18 +2,19 @@
   padding-top: 1em;
   color: var(--black);
   font-size: 1.5em;
+  height: 0px;
 }
 
 .new-tweet-hide {
-  height: 0px;
+
   display: none;
-  transition: display 4s;
+  transition: height 4s;
 }
 
 .new-tweet-show {
   height: 8em;
   display: block;
-  transition: display 4s;
+  transition: height 0.5s;
 }
 
 .new-tweet__input {

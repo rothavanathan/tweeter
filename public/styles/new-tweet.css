@@ -4,6 +4,18 @@
   font-size: 1.5em;
 }
 
+.new-tweet-hide {
+  height: 0px;
+  display: none;
+  transition: display 4s;
+}
+
+.new-tweet-show {
+  height: 8em;
+  display: block;
+  transition: display 4s;
+}
+
 .new-tweet__input {
   border-bottom: 4px solid var(--black);
   padding-top: 0.5em;

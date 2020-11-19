@@ -71,3 +71,35 @@ body > footer > p > a {
   opacity: 0.5;
 }
 
+.dot {
+  display: none;
+  height: 100px;
+  width: 100px;
+  background-color: var(--blue);
+  border-radius: 50%;
+  
+  position: fixed;
+  top: 80vh;
+  left: 80vw;
+  z-index: 1;
+}
+
+.dot > i {
+  color: var(--orange);
+  font-size: 2.5em;
+  position: relative;
+  left: 30px;
+  top: 18px;
+}
+
+.dot:hover {
+  background-color: var(--orange);
+}
+
+.dot:hover > i {
+  color: var(--white);
+}
+
+.active {
+  display: inline-block;
+}

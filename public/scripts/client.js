@@ -60,16 +60,11 @@ $(document).ready(function() {
       $('.old-tweets-container').prepend($tweet);
     }
   };
-
-  const renderNewTweet = function(tweet) {
-    const $tweet = createTweetElement(tweet);
-    $('.old-tweets-container').prepend($tweet);
-  };
   
-
   // define a function createTweetElement that takes in a tweet object and is responsible for returning a tweet <article> element containing the entire HTML structure of the tweet
 
   const createTweetElement = function(tweet) {
+    const time = new Date(tweet.created_at);
     let $tweet = $(`<article class="tweet">
     <header>
       <img src="${escape(tweet.user.avatars)}" alt="${escape(tweet.user.name)}'s avatar">
@@ -81,7 +76,7 @@ $(document).ready(function() {
      <p class="old-tweet-text">${escape(tweet.content.text)}</p>
     </main>
     <footer>
-        <p class="timestamp">${escape(tweet.created_at)}</p>
+        <p class="timestamp">${escape(time.toLocaleString())}</p>
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
         <i class="fas fa-fire-alt"></i>
@@ -105,7 +100,6 @@ $(document).ready(function() {
       .then(data => {
         console.log(`tweets fetched`, data);
         action(data);
-        return data;
       })
       .catch(err => console.log(err));
   };
@@ -133,13 +127,32 @@ $(document).ready(function() {
           $('#tweet-text').val("");
           //reset counter
           $(".counter").val(140).css('color', 'var(--black)');
-
+          $('.old-tweets-container').empty();
           console.log(`whoo!! we got a post`, res);
           loadTweets(renderTweets);
         })
       
         .catch(err => console.log(err));
       // alert(`Form input is invalid. Please enter text with a maximum of 140 characters.`)
+    }
+  });
+
+  //second toggle listener and logic
+  $('.dot').on('click', () => {
+    //scroll to top of page
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
+
+    //open form
+    $('section.new-tweet').addClass('new-tweet-show');
+    $('#tweet-text').focus();
+  });
+
+  $(window).scroll(function() {
+    var height = $(window).scrollTop();
+    if(height > 400) {
+      $('.dot').addClass('active');
+    } else {
+      $('.dot').removeClass('active');
     }
   });
 });

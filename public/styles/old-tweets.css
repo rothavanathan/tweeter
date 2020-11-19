@@ -10,7 +10,8 @@ article.tweet {
   margin-top: 2em;
   padding: 1em;
   color: var(--black);
-  opacity: 0.75;
+  background-color:  #f9f9f9;
+  opacity: 0.5;
 }
 
 article.tweet:hover {

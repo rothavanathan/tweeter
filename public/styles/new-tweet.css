@@ -3,13 +3,10 @@
   color: var(--black);
   font-size: 1.5em;
   height: 0px;
-}
-
-.new-tweet-hide {
-
   display: none;
   transition: height 4s;
 }
+
 
 .new-tweet-show {
   height: 8em;

@@ -2,17 +2,31 @@
   body {
     display: flex;
     flex-wrap: wrap;
+    /* align-items: stretch; */
   }
 
   body > nav {
     flex-basis: 100%;
     margin-bottom: 4em;
+    background-color: var(--blue);
+  }
+
+  #title {
+    color: white;
+  }
+
+  nav i {
+    color: var(--orange);
   }
 
   body > header.banner {
     padding: 0 4em;
-    width: 50%;
-    margin-bottom: auto;
+    width: calc(50% - 4em);
+    height: 60vh;
+    margin: 0 2em;
+    /* padding-bottom: auto; */
+    position: sticky;
+    top: calc(120px + 4em);
   }
 
   body > main {

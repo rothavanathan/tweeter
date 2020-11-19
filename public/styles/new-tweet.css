@@ -40,7 +40,7 @@
 
 #alert button {
   font-family: Bungee, cursive;
-  background-color: white;
+  background-color: var(--white);
   color: var(--black);
   width: 2em;
 
@@ -99,7 +99,7 @@
   /* margin: 0.5em; */
   font-family: Bungee, cursive;
   background-color: var(--blue);
-  color: white;
+  color: var(--white);
 }
 
 .new-tweet__counter {
@@ -116,5 +116,5 @@
 
 
 .over-limit {
-  color: rgb(255,0,0);
+  color: red;
 }

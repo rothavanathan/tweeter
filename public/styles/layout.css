@@ -3,11 +3,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-:root {
-  --black:  #545149;
-  --blue:  #4056A1;
-  --orange: rgb(255, 181, 15, 89);
-}
+
 
 html {
   box-sizing: border-box;
@@ -19,10 +15,17 @@ html {
 /*
  * Global layout stuff
  */
+ :root {
+  --black:  #545149;
+  --blue:  #4056A1;
+  --orange: rgb(255, 181, 15, 89);
+  --white: white;
+  --offwhite: #f9f9f9;
+}
 
 body {
   color: var(--black);
-  background-color: white;
+  background-color: var(--white);
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
@@ -36,7 +39,7 @@ body {
 body > main {
   width: 90%;
   margin: 0 auto;
-  color: white;
+  color: var(--white);
   font-weight: 300;
   background-color: inherit;
   background-image: inherit;
@@ -48,7 +51,7 @@ body > footer {
   height: 8em;
   margin-top: 2em;
   font-family: Bungee, cursive;
-  color:  #f9f9f9;
+  color:  var(--offwhite);
   background-color: var(--black);
   background-image: inherit;
   display: flex;
@@ -64,7 +67,7 @@ body > footer > p {
 
 body > footer > p > a {
   text-decoration: none;
-  color: white;
+  color: var(--white);
   opacity: 0.5;
 }
 

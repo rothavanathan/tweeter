@@ -10,13 +10,13 @@ article.tweet {
   margin-top: 2em;
   padding: 1em;
   color: var(--black);
-  background-color:  #f9f9f9;
+  background-color: var(--offwhite);
   opacity: 0.5;
 }
 
 article.tweet:hover {
   box-shadow: 7px 7px 8px 3px var(--black);
-  background-color:  #f9f9f9;
+  background-color: var(-offwhite);
   opacity: 0.8;
 }
 

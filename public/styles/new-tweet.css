@@ -2,16 +2,22 @@
   padding-top: 1em;
   color: var(--black);
   font-size: 1.5em;
-  height: 0px;
-  display: none;
-  transition: height 4s;
+  visibility: hidden;
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
 }
 
 
 .new-tweet-show {
-  height: 8em;
-  display: block;
-  transition: height 0.5s;
+  visibility: visible;
+  max-height: 500px;
+  transition: max-height 0.25s ease-in;
+  opacity: 1;
+  transition: opacity 0.20s ease-in;
+  
+  
 }
 
 .new-tweet__input {

@@ -42,13 +42,18 @@
     bottom: 0;
   }
 
-  /* we won't hide the new-tweet form in the desktop version */
   .new-tweet {
     padding-top: 0;
-    visibility: visible;
-    max-height: 500px;
-    transition: max-height 0.25s ease-in;
-    opacity: 1;
-    transition: opacity 0.20s ease-in;
+  }
+  .new-tweet-show {
+    margin-bottom: 1em;
+  }
+  
+  .old-tweets-container {
+    padding-top: 0;
+  }
+
+  .old-tweets-container article:first-child {
+    margin-top: 0;
   }
 }

@@ -4,7 +4,7 @@ Tweeter is a simple, single-page Twitter clone.
 
 Built for the **Lighthouse Labs Web Development** bootcamp by **Romesh Thavanathan**.
 
-![mobile app demo](./tweeter_mobile.gif)
+<img src="./tweeter_mobile.gif" width="40%">
 
 ![desktop app demo](./tweeter_desktop.gif)
 

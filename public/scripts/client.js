@@ -101,6 +101,7 @@ $(document).ready(function() {
         dataType: 'json'
       })
       .then(data => {
+        console.log(Array.isArray(data));
         const $tweet = createTweetElement(Object.values(data).pop());
         $('.old-tweets-container').prepend($tweet);
       })

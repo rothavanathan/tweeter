@@ -9,5 +9,4 @@ $(document).ready(function() {
     counter.val() < 0 ? counter.css('color', 'red'): counter.css('color', 'var(--black)');
   }));
 
-
 });

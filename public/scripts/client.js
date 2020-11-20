@@ -7,9 +7,7 @@
 // const jquery223Min = require("../vendor/jquery-2.2.3.min");
 // const $ = jquery223Min;
 
-
 $(document).ready(function() {
-  
   
   //       HELPER FUNCTIONS    //
 
@@ -22,7 +20,7 @@ $(document).ready(function() {
       $('#alert').addClass('showAlert');
       return false;
     } else if (text.length > 140) {
-      $('#alert > p').text('Hmm.. you can\'t submit a tweet that big!\n 140 characters max.');
+      $('#alert > p').text('Hmm.. that tweet is too big!\n 140 characters max.');
       $('#alert').addClass('showAlert');
       return false;
     } else if (text === null) {
@@ -32,8 +30,6 @@ $(document).ready(function() {
     }
     return true;
   };
-
- 
 
   //form input sterilizer
   const escape =  function(str) {
@@ -84,7 +80,6 @@ $(document).ready(function() {
     }
   };
   
-  
   //      TWEET FUNCTIONS            //
   
   //takes in tweets object and renders each tweet to page
@@ -112,7 +107,6 @@ $(document).ready(function() {
       .catch(err => console.log(err));
   };
 
-
   //takes in a tweet object and is responsible for returning a tweet <article> element containing the entire HTML structure of the tweet
   const createTweetElement = function(tweet) {
     //generate date object to parse the timestamp
@@ -138,8 +132,6 @@ $(document).ready(function() {
     return $tweet;
   };
 
- 
-
   //makes an ajax request and returns json data
   //intention is to to get tweets then render using renderTweets as callback
   const loadTweets = (action) => {
@@ -155,11 +147,8 @@ $(document).ready(function() {
       .catch(err => console.log(err));
   };
 
-  
-
-  //         populate old-tweet container          //
+  //         POPULATE OLD-TWEET-CONTAINER         //
   loadTweets(renderTweets);
-
 
   //                EVENT LISTENERS                 //
 
@@ -190,7 +179,6 @@ $(document).ready(function() {
     }
   });
 
-
   //second toggle listener and logic
   $('.dot').on('click', () => {
     //scroll to top of page
@@ -199,7 +187,6 @@ $(document).ready(function() {
     $('section.new-tweet').addClass('new-tweet-show');
     $('#tweet-text').focus();
   });
-
 
   //prompt in nav to display new-tweet form
   $('.nav-prompt').on('click', () => {

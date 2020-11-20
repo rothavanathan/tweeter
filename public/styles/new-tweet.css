@@ -7,13 +7,15 @@
   transition: max-height 0.15s ease-out;
   opacity: 0;
   transition: opacity 0.15s ease-out;
+  display: flex;
+  flex-direction: column;
 }
 
 
 
 .new-tweet-show {
   visibility: visible;
-  max-height: 500px;
+  max-height: 12em;
   transition: max-height 0.25s ease-in;
   opacity: 1;
   transition: opacity 0.20s ease-in;
@@ -67,7 +69,14 @@
   transition: height 300ms;
 }
 
+.new-tweet > form {
+  max-height: 12em;
+  display: flex;
+  flex-direction: column;
+}
+
 .new-tweet__input {
+  max-height: 12em;
   border-bottom: 4px solid var(--black);
   padding-top: 0.5em;
   display: flex;
@@ -78,7 +87,7 @@
   flex:1;
   padding-top: 0.5em;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: visible;
   resize: none;
   background: inherit;
   border: none;
@@ -118,3 +127,5 @@
 .over-limit {
   color: red;
 }
+
+

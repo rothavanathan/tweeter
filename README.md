@@ -4,6 +4,10 @@ Tweeter is a simple, single-page Twitter clone.
 
 Built for the **Lighthouse Labs Web Development** bootcamp by **Romesh Thavanathan**.
 
+![mobile app demo](./tweeter_mobile.gif)
+
+![desktop app demo](./tweeter_desktop.gif)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
